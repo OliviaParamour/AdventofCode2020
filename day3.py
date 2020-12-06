@@ -39,8 +39,8 @@ def main() -> None:
 
     print(f"Field Width: {len(field[0]):>7}")
     print(f"Field Height: {len(field):>6}\n")
-    print(f"Question 1 answer: {trees_for_slope_three_one}")
-    print(f"Question 2 answer: {multiplied_total}")
+    print(f"Sum of three hit on slope, (3,1): {trees_for_slope_three_one:>19}")
+    print(f"product of sum of trees hit on all slopes: {multiplied_total:>10}")
 
 if __name__ == "__main__":
     main()

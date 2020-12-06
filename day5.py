@@ -37,8 +37,8 @@ def main() -> None:
     empty_seat = find_empty_seat(tickets)
 
     print(f"Total number of tickets: {len(tickets)}")
-    print(f"Max Row: {max(tickets)}")
-    print(f"Empty Seat: {empty_seat}")
+    print(f"Maximum seat ID: {max(tickets):>11}")
+    print(f"Empty seat ID: {empty_seat:>13}")
 
 if __name__ == "__main__":
     main()

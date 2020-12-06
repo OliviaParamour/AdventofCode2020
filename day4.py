@@ -69,8 +69,8 @@ def main() -> None:
     valid_passports = is_all_valid(passports)
     
     print(f"Total number of passports: {len(passports)}")
-    print(f"Total number of valid passwords for test one: {valid_passports[0]}")
-    print(f"Total number of valid passwords for test two: {valid_passports[1]}")
+    print(f"Number of valid passwords for test one: {valid_passports[0]}")
+    print(f"Number of valid passwords for test two: {valid_passports[1]}")
 
 if __name__ == "__main__":
     main()
