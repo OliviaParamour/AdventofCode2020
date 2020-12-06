@@ -8,11 +8,8 @@ def load(file_name: str) -> list:
     input = []
     with open(file_name) as file:
         for line in file:
-            input.append(parse(line.strip()))
+            input.append(line.strip())
     return input
-
-def parse(line: str):
-    pass
 
 def main() -> None:
     """The main function for day 4. Answers Question 1 and 2."""
