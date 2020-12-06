@@ -37,7 +37,6 @@ def main() -> None:
     print(f"Sum of all questions that each group said yes to: {total_yes}")
     print(f"Sum of all members that said yes", end=" ")
     print(f"to the same question per group: {total_group_yes}")
-    print({"abcd"})
 
 if __name__ == "__main__":
     main()
