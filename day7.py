@@ -7,7 +7,7 @@ def load(file_name: str) -> dict:
     with open(file_name) as file:
         bag_regex = re.compile(r" (\d+) (\w+ \w+) ")
         for line in file:
-            key_bag, inner_bags = line.split(" bags contain ")
+            key_bag, inner_bags = line.split(" bags contain")
             bags = re.findall(bag_regex, inner_bags)
             bag_rules[key_bag] = {bag[1]:int(bag[0]) for bag in bags}
     return bag_rules
