@@ -12,7 +12,7 @@ def load(file_name: str) -> dict:
             bag_rules[key_bag] = {bag[1]:int(bag[0]) for bag in bags}
     return bag_rules
 
-def find_all_outer(bag, bag_rules) -> set:
+def find_all_outer(bag: str, bag_rules: dict) -> set:
     outer_bags = set()
     for key_bag in bag_rules:
         if bag in bag_rules[key_bag]:
@@ -22,12 +22,11 @@ def find_all_outer(bag, bag_rules) -> set:
         return outer_bags
     return set([bag])
 
-def find_all_inner(bag, bag_rules) -> int:
+def find_all_inner(bag: str, bag_rules: dict) -> int:
     inner_bags = 0
     for value_bag in bag_rules[bag]:
         quantity = bag_rules[bag][value_bag]
-        inner_bags += quantity
-        inner_bags += quantity * find_all_inner(value_bag, bag_rules)
+        inner_bags += quantity * (1 + find_all_inner(value_bag, bag_rules)) 
     return inner_bags
 
 
