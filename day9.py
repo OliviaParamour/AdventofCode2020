@@ -1,4 +1,3 @@
-from itertools import combinations
 from collections import deque
 
 
@@ -16,8 +15,12 @@ def find_invalid(numbers: list, num_range: int) -> int:
     """
     for i in range(num_range, len(numbers)):
         num_list = numbers[i-num_range:i]
-        possible_sums = list(combinations(num_list, 2))
-        if numbers[i] not in map(sum, possible_sums):
+        found = True
+        for j in num_list:
+            if (numbers[i] - j) in num_list:
+                found = False
+                break
+        if found:
             return numbers[i]
     return -1
 
