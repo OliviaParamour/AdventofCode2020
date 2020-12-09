@@ -30,18 +30,18 @@ def run(program: list) -> tuple:
             instructions.append(step)
             return accumulator, instructions
 
-def find_fault(program: list, executed_instructions: list) -> tuple:
+def find_fault(program: list, instructions: list) -> tuple:
     """iterates through all executed instructions to test and find the fault"""
     switch_opcode = {"jmp":"nop", "nop":"jmp"}
-    modified_program = program.copy()
-    for i in executed_instructions: 
-        opcode = modified_program[i]["opcode"]
+    test_program = program.copy()
+    for i in instructions: 
+        opcode = test_program[i]["opcode"]
         if opcode != "acc":
-            modified_program[i].update({"opcode": switch_opcode[opcode]})
-            accumulator, instructions = run(modified_program)
-            if instructions[-1] >= len(program):
+            test_program[i].update({"opcode": switch_opcode[opcode]})
+            accumulator, test_instructions = run(test_program)
+            if test_instructions[-1] >= len(program):
                 return accumulator, i
-            modified_program[i].update({"opcode": opcode})
+            test_program[i].update({"opcode": opcode})
     return None, None
 
 
