@@ -1,5 +1,6 @@
-import itertools
+from itertools import combinations
 from collections import deque
+
 
 def load(file_name: str) -> list:
     """Loads and parses the input for use in the challenge."""
@@ -10,23 +11,29 @@ def load(file_name: str) -> list:
     return input
 
 def find_invalid(numbers: list, num_range: int) -> int:
+    """finds the first number in a list that is not the sum of any two numbers
+    in a range of contiguous numbers in that same list
+    """
     for i in range(num_range, len(numbers)):
         num_list = numbers[i-num_range:i]
-        combinations = list(itertools.combinations(num_list, 2))
-        if numbers[i] not in map(sum, combinations):
+        possible_sums = list(combinations(num_list, 2))
+        if numbers[i] not in map(sum, possible_sums):
             return numbers[i]
     return -1
 
-def find_contiguous_range(numbers: list, invalid_number: int) -> tuple:
-    index = numbers.index(invalid_number)
+def find_contiguous_range(numbers: list, search_number: int) -> tuple:
+    """finds the smallest and largest number in a contiguous range that sums 
+    to a specified number
+    """
+    index = numbers.index(search_number)
     stack = deque()
     for number in numbers[:index]:
-        while sum(stack) > invalid_number:
-            stack.popleft()
-        if sum(stack) == invalid_number:
+        if sum(stack) == search_number:
             return min(stack), max(stack)
         else:
             stack.append(number)
+        while sum(stack) > search_number:
+            stack.popleft()
     return -1,-1
 
 
