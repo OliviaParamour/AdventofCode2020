@@ -1,6 +1,7 @@
 import numpy
 import collections
 
+
 def load(file_name: str) -> list:
     """Loads and parses the input for use in the challenge."""
     input = []
