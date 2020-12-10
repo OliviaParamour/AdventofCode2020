@@ -11,7 +11,7 @@ def load_file(file_name: str) -> list:
 def find_two_sum(numbers: list, limit: int) -> list:
     """Find two numbers in a list that sum to the limit"""
     found = []
-    low_numbers = [i for i in numbers if i <= 1010]
+    low_numbers = [i for i in numbers if i <= limit/2]
     for a in low_numbers:
         if (b := (limit-a)) in numbers:
             found.append(a * b)
@@ -20,7 +20,7 @@ def find_two_sum(numbers: list, limit: int) -> list:
 def find_three_sum(numbers: list, limit: int) -> list:
     """Find three numbers in a list that sum to the limit"""
     found = []
-    low_numbers = [i for i in numbers if i < 1010]
+    low_numbers = [i for i in numbers if i < limit/2]
     for a, b in itertools.combinations(low_numbers, 2):
         if (c := (2020 - a - b)) in numbers:
             found.append(a * b * c)
