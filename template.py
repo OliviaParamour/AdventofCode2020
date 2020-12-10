@@ -16,8 +16,8 @@ def myfunc(input: list) -> int:
 
 
 def main() -> None:
-    """The main function for day 10. Answers Question 1 and 2."""
-    inputs = load("day5.txt")
+    """The main function for day x. Answers Question 1 and 2."""
+    inputs = load("dayx.txt")
     value = myfunc(inputs)
 
     print(f"Total number of inputs: {len(inputs)}")
