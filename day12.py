@@ -24,12 +24,6 @@ class Heading(Enum):
     def find_name(self, value):
         pass
 
-class Waypoint():
-    def __init__(self, x=0, y=0) -> None:
-        super().__init__()
-        self.x = x
-        self.y = y
-
 class Ship():
     def __init__(self, heading=Heading.E.value , waypoint:tuple=(10,1)) -> None:
         super().__init__()
